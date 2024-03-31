@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><$title></title>
     <$css>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/searchNews.js" type="module"></script>
     <$js>
 </head>
 <body>
     <header>
         <nav>
             <input type="text" name="query" placeholder="Search news...">
-            <select name="country">
+            <select name="country" id="country">
                 <option value="us">United States</option>
                 <option value="uk">United Kingdom</option>
                 <option value="br">Brazil</option>
             </select>
-            <button type="submit">Search</button>
+            <button type="submit" onclick="searchNew()">Search</button>
         </nav>
     </header>
 
