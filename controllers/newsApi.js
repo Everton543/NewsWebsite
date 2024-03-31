@@ -4,12 +4,19 @@ const axios = require('axios');
 const API_KEY = process.env.API_KEY;
 
 exports.getRecentNews = async (req, res) => {
-    let country = req.params.country; // Assuming country code is passed as a URL parameter
+    let country = req.params.country;
+    let query = req.query.query;
+    
     if(country == null){
         country = 'us';
     }
-    const url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${API_KEY}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${country}`;
 
+    if(query && query.trim() !== '') {
+        url += `&q=${encodeURIComponent(query.trim())}`;
+    }
+
+    url += `&apiKey=${API_KEY}`;
     try {
         const response = await axios.get(url);
         const filteredArticles = response.data.articles.filter(article => {
