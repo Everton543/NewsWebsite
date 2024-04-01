@@ -23,7 +23,7 @@ exports.index = async (req, res) => {
         let htmlContent = layout
             .replace('<$title>', 'Home')
             .replace('<$css>', '')//'<link rel="stylesheet" href="/css/style.css">')
-            .replace('<$js>', '')
+            .replace('<$js>', '<script src="/js/searchNews.js" type="module"></script>')
             .replace('<$content>', content);
 
         res.send(htmlContent);

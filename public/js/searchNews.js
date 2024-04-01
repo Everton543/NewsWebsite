@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    if (localStorage.getItem('category') != '') {
+        let category = localStorage.getItem('category');
+        $("#category").val(category);
+    }
     searchNews();
     $("#searchButton").click(searchNews);
 });
@@ -7,12 +11,16 @@ function searchNews(){
     const country = $('#country').val();
     const query = $('#query').val();
     const requestUrl = baseUrl(`api/news/${country}`);
+    const category = $("#category").val();
+    localStorage.setItem('category', category);
+
     $('#newsList').html('loading...');
     $.ajax({
         url: requestUrl,
         type: 'GET',
         data: {
-            query: query
+            query: query,
+            category: category
         },
         success: function(data) {
             let html = '';
@@ -89,4 +97,15 @@ function baseUrl(parameters = ''){
         baseUrl += `/${parameters}`;
     }
     return baseUrl;
+}
+
+function alert(message, containerId, type = 'success'){
+    let html = `
+        <div class="alert alert-${type} fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            ${message}
+        </div>
+    `;
+
+    $(`#${containerId}`).html(html);
 }

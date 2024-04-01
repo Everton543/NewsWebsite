@@ -6,6 +6,7 @@ const API_KEY = process.env.API_KEY;
 exports.getRecentNews = async (req, res) => {
     let country = req.params.country;
     let query = req.query.query;
+    let category = req.query.category;
     
     if(country == null){
         country = 'us';
@@ -14,6 +15,10 @@ exports.getRecentNews = async (req, res) => {
 
     if(query && query.trim() !== '') {
         url += `&q=${encodeURIComponent(query.trim())}`;
+    }
+
+    if (category && category.trim() !== '') {
+        url += `&category=${encodeURIComponent(category)}`;
     }
 
     url += `&apiKey=${API_KEY}`;
