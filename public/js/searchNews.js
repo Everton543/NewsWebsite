@@ -66,7 +66,7 @@ function searchNews(){
                         }
                     }
                     html += `
-                        <div id="new_${index}">
+                        <div id="new_${index}" class="item">
                             <h2>${news.title}</h2>
                             <h3>${subtitle}</h3>
                             ${image}

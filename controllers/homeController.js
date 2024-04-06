@@ -22,7 +22,7 @@ exports.index = async (req, res) => {
         // Replace placeholders in layout with content and other dynamic values
         let htmlContent = layout
             .replace('<$title>', 'Home')
-            .replace('<$css>', '')//'<link rel="stylesheet" href="/css/style.css">')
+            .replace('<$css>', '<link rel="stylesheet" href="/css/home.css">')
             .replace('<$js>', '<script src="/js/searchNews.js" type="module"></script>')
             .replace('<$content>', content);
 
