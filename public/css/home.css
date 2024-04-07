@@ -1,3 +1,46 @@
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: #171614;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+select {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #754043;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #422020;
+}
+
+footer{
+    color: white;
+}
+
 #newsList {
     display: flex;
     flex-wrap: wrap;
@@ -6,6 +49,7 @@
 
 h1{
     color: #754043 !important;
+    background-color: #171614;
 }
 
 body{
